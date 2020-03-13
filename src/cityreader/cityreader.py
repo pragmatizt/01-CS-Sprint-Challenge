@@ -21,16 +21,25 @@ class City:
     self.lat = lat
     self.lon = lon
 
-cities = []
+"""reference: https://www.quora.com/What-is-the-use-of-__str__-in-python"""
+def __str__(self):
+  pass
+# So here -- we can do an f'string for the output.
 
 """self note: this was helpful: https://docs.python.org/3/library/csv.html"""
-
-def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+
+cities = []
+
+import csv
+def cityreader(cities=[]):
     with open('cities.csv', newline='') as csvfile:
-  
+        data = csv.reader(csvfile, delimiter = ',')
+        for row in data:
+          
+
 
 cityreader(cities)
 
