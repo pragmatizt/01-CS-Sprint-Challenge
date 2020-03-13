@@ -23,14 +23,14 @@ class City:
 
 cities = []
 
+"""self note: this was helpful: https://docs.python.org/3/library/csv.html"""
+
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
-    city_name = open('cities.csv', 'r+')
-    for i in cities:
-    i.append(city_name)
-    return cities
+    with open('cities.csv', newline='') as csvfile:
+  
 
 cityreader(cities)
 

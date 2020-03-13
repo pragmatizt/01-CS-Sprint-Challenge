@@ -36,6 +36,6 @@ vehicles = [
 # Go through the vehicles list and print the result of calling drive() on each.
 
 for v in vehicles:
-    print(v.drive)
+    print(v.drive())
 
 """Weird, they just come out as object (serial #'s?)"""
