@@ -20,10 +20,10 @@ class City:
     self.name = name
     self.lat = lat
     self.lon = lon
-
+  def __str__(self):
+    return f"City: {self.name} / Latitude: {self.lat} / Longitude: {self.lon}"
 """reference: https://www.quora.com/What-is-the-use-of-__str__-in-python"""
-def __str__(self):
-  pass
+
 # So here -- we can do an f'string for the output.
 
 """self note: this was helpful: https://docs.python.org/3/library/csv.html"""
@@ -37,9 +37,20 @@ import csv
 def cityreader(cities=[]):
     with open('cities.csv', newline='') as csvfile:
         data = csv.reader(csvfile, delimiter = ',')
-        for row in data:
-          
+        # Attempt to skip first row
+        header = next(data)
+        
+        # Extract City, Lat, and Lon columns from dataset
+        for column in data:
+          city = column[0]
+          latitude = column[3]
+          longitude = column[4]
 
+          city_instance = City(str(city), float(latitude), float(longitude))
+                          # This finally clicked to me.  And how OOP can be used with loading a file.
+          cities.append(city_instance)
+
+    return cities
 
 cityreader(cities)
 
